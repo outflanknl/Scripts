@@ -13,7 +13,7 @@ def my_rand(n):
     return PBKDF2(master_key, "my_rand:%s" % my_rand.counter, dkLen=n, count=1)
 my_rand.counter = 0
 print("""
-This script wil generate an ssh key from a password. This way you can use key's on
+This script wil generate an ssh key from a password. This way you can use ssh-keys on
 non-persistent machines. However I've seen different keys from the same password.
 Make sure you run this atleast once on a persistent (offline) machine to save the 
 keys for emergency recovery.
